@@ -30,8 +30,7 @@ namespace AzureWebApp
 #else
             services.AddDbContext<MvcMovieContext>(options =>
                     {
-                        var connString = "Server=tcp:simplewebapp.database.windows.net,1433;Initial Catalog=MvcMovie;Persist Security Info=False;User ID=ryanmcbride;Password=Takeoff41;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                        options.UseSqlServer(connString);
+                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                     });
 #endif
         }
